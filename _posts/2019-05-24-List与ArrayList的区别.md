@@ -1,6 +1,7 @@
+---
 layout:     post
 title:      List与ArrayList的区别
-subtitle:  List与ArrayList的区别
+subtitle: zlz谈List与ArrayList的区别
 date:       2019-05-24
 author:     ZLZ
 header-img: img/345.jpg
@@ -16,7 +17,9 @@ tags:
 
 
 ## 正文
+
 ###ArrayList
+
 ArrayList是.Net Framework提供的用于数据存储和检索的专用类，它是命名空间System.Collections下的一部分。它的大小是按照其中存储的数据来动态扩充与收缩的。所以，我们在声明ArrayList对象时并不需要指定它的长度。ArrayList继承了IList接口，所以它可以很方便的进行数据的添加。
 ```
 
@@ -28,17 +31,20 @@ ArrayList是.Net Framework提供的用于数据存储和检索的专用类，它
 ```
 
 ###List
+
 List类是ArrayList类的泛型等效类。它的大部分用法都与ArrayList相似，因为List类也继承了IList接口。最关键的区别在于，在声明List集合时，我们同时需要为其声明List集合内数据的对象类型。
 
 如果我们往List集合中插入string字符"hello world"，IDE就会报错，且不能通过编译。这样就避免了前面讲的类型安全问题与装箱拆箱的性能问题了。也就是如果使用List,那么集合内的数据类型有且只能是一种,不允许多种。
 List不能被构造，但可以向上面那样为List创建一个引用，而ListArray就可以被构造
 即:
+```
 ist list;     //正确   list=null; 
 List list=new List();    //   是错误的用法
 List<int> list = new List<int>();  //正确
 List<int> list = new ArrayList<>();   //正确,需要注意的是;这句创建了一个ArrayList的对象后把赋值给了List。此时它是一个List对象了，所以会出现有些ArrayList有但是List没有的属性和方法，那么这个List对象就不能再用了
 ListArray listArray = new ListArray();   //正确,这里创建的对象则保留了ArrayList的所有属性
 
+```
 
 
 
