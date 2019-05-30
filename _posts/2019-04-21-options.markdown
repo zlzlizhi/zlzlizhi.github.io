@@ -1,0 +1,95 @@
+---
+layout:     post
+title:      "JavaScript/jQuery -- 选项卡功能"
+subtitle:   "记录选项卡功能,方便以后用"
+date:       2019-04-21 16:27
+author:     "ZXZ"
+header-style:   "text"
+header-img: "img/home-bg-o.jpg"
+tags:
+    - js
+    - jQuery
+    - 选项卡
+---
+
+
+>在程序员的世界中代码复用性很强,当然前提是你已经了解这段代码了
+>为了以后工作更加效率我决定以后把一些功能记载下来
+>也希望各位大佬能够指教一二,让我积累更多的知识
+
+
+选项卡功能
+=========
+
+效果预览
+--------
+
+![img](/img/选项卡-01.png)
+
+
+![img](/img/选项卡-02.png)
+
+
+![img](/img/选项卡-03.png)
+
+
+详析代码
+--------
+
+**JavaScript**
+
+```javaScript
+
+  window.onload = function() {
+            //找到选项
+            var oSpans = document.getElementsByTagName("span");
+            //找到内容
+            var oUls = document.getElementsByTagName("ul");
+            //第一层循环
+            for (var i = 0; i < oSpans.length; i++) {
+                //标记选项的下标
+                oSpans[i].index = i;
+                //当鼠标移动到当前选项时
+                oSpans[i].onmouseenter = function() {
+                    //第二层循环主要实现当鼠标移到某个选项时
+                    //都保持 class="" 的状态
+                    //也就是样式初始化
+                    for (var n = 0; n < oSpans.length; n++) {
+                        oSpans[n].className = "";
+                    }
+                    //给所选中的选项改变元素
+                    this.className = "change";
+                    //也是二层循环和上面功能一样,是让内容都先隐藏
+                    //也就是内容初始化
+                    for (var n = 0; n < oSpans.length; n++) {
+                        oUls[n].style.display = "none";
+                    }
+                    //在给所选的选项下的内容显示出来
+                    //这里不能直接用this了,因为鼠标是在选项卡上面不是内容上面
+                    //但是选项卡和内容的位置一样,所以可以用下标来代替
+                    oUls[this.index].style.display = "block";
+                };
+            }
+        }
+```
+
+**jQuery**
+
+```javaScript
+   $(document).ready(function(){
+            //mouseenter是jQuery里的鼠标进入元素的事件
+            $(".header span").mouseenter(function(){
+                //eq(num)索引
+                //index()返回指定元素相对于其他元素的位置
+                //addClass()给指定元素添加 class属性  removeClass()与之相反 是删除
+                //siblings 找到指定元素的同胞元素
+                $(".header span").eq($(this).index()).addClass("change").siblings().removeClass("change");
+                $(".content ul").hide().eq($(this).index()).show();
+            });
+        });
+```
+源码所在
+---------
+*这个是我用来js练手时候写的，写的不是很好希望谅解*
+
+[--------源码地址-------](https://github.com/BeeMan-zxz/WebTool/tree/master/js%E7%BB%83%E4%B9%A0)
