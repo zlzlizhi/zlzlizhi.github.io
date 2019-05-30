@@ -1,10 +1,10 @@
 # Site settings
 title: ZLZ Blog
-SEOTitle: 张鑫泽的博客 | ZLZ Blog
+SEOTitle: 张立志的博客 | ZLZ Blog
 header-img: img/post-bg-universe.jpg
 email: 1416024334@qq.com
-description: "落花，流水，我的时间和代码...^.^"
-keyword: "张立志,昝晓婷,前端,梦三国,王者荣耀,篮球,游泳,跑步,C#,HTML,CSS,JS,JQuery,Bootstrap,vue,AJAX,JSON,Java"
+description: "No pains No gains...^.^"
+keyword: "张立志,王者荣耀,篮球,游泳,跑步,C#,HTML,CSS,JS,JQuery,vue,AJAX,JSON,Java"
 url: "https://github.com/zlzlizhi"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/zlzlizhi/zlzlizhi.github.io.git"
