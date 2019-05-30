@@ -2,7 +2,7 @@
 
 ### [View Live Hux Blog &rarr;](https://huangxuan.me)
 
-![](http://BeeMan-zxz.github.io/img/blog-desktop.jpg)
+![](http://zlzlizhi.github.io/img/blog-desktop.jpg)
 
 
 

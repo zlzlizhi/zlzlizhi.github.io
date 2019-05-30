@@ -1,13 +1,13 @@
 # Site settings
-title: ZXZ Blog
-SEOTitle: 张鑫泽的博客 | ZXZ Blog
+title: ZLZ Blog
+SEOTitle: 张立志的博客 | ZLZ Blog
 header-img: img/post-bg-universe.jpg
-email: 1411187672@qq.com
-description: "落花，流水，我的时间和代码...^.^"
-keyword: "张鑫泽,昝晓婷,前端,梦三国,王者荣耀,篮球,游泳,跑步,C#,HTML,CSS,JS,JQuery,Bootstrap,vue,AJAX,JSON,Java"
-url: "https://github.com/BeeMan-zxz"              # your host, for absolute URL
+email: 1416024334@qq.com
+description: "No pains No gains...^.^"
+keyword: "张立志,ZLZ,王者荣耀,篮球,游泳,跑步,C,C++,C#,HTML,CSS,JS,JQuery,AJAX,JSON,PS"
+url: "https://github.com/zlzlizhi"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/BeeMan-zxz/BeeMan-zxz.github.io.git"
+github_repo: "https://github.com/zlzlizhi/zlzlizhi.github.io.git"
 
 
 # Publish posts or collection documents with a future date.
@@ -15,9 +15,9 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     u/7084253381
-zhihu_username:     u/e16882040a69   
-github_username:    BeeMan-zxz
+weibo_username:     风在跳舞6447607077
+#zhihu_username:     u/e16882040a69   
+github_username:    zlzlizhi
 # twitter_username:   huxpro
 #facebook_username:  huxpro
 #linkedin_username:  firstname-lastname-idxxxx
@@ -67,11 +67,11 @@ kramdown:
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: 1807d3fe98c6a45d38d0   #生成的clientID
-  clientSecret: 695d2f3f679f361308ed78291534afc08b180246  #同上
-  repo: BeeMan-zxz.github.io    #仓库名称
-  owner: BeeMan-zxz    #github用户名
-  admin: BeeMan-zxz
+  clientID: 1f8b5ecafbac0900aa64   #生成的clientID
+  clientSecret: 4b5e0c5524c624c6ceb9b5994882ff4395b1ee03  #同上
+  repo: zlzlizhi.github.io     #仓库名称
+  owner: zlzlizhi    #github用户名
+  admin: zlzlizhi  
   id: window.location.pathname
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
@@ -80,7 +80,7 @@ gitalk:
 
 
 # Disqus settings
-disqus_username: zxz
+disqus_username: zlzlizhi
 
 # Netease settings
 netease_comment: false
