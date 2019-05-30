@@ -1,0 +1,141 @@
+---
+layout:     post
+title:      "git的基本操作"
+subtitle:   "git,github的使用,填些遇过的小坑"
+date:       2019-04-19 21:50
+author:     "ZXZ"
+header-style:   "text"
+tags:
+    - Git
+    - Github
+---
+
+>GitHub是一个面向开源及私有软件项目的托管平台，因为只支持git<br>
+>作为唯一的版本库格式进行托管，故名GitHub。<br>
+>[参考链接](https://www.cnblogs.com/sdcs/p/8270029.html)
+
+了解github
+==========
+
+   GitHub于2008年4月10日正式上线，除了Git代码仓库托管及基本的 
+Web管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编
+辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，
+其注册用户已经超过350万，托管版本数量也是非常之多，其中不乏
+知名开源项目 Ruby on Rails、jQuery、python 等。  
+
+
+
+1.创建Github账号
+    -在Github上我们可以找到自己需要的开源项目。
+    -也可以把我们正在做的项目托管在上面。
+    -可以随时找到你之前上传时候的项目版本。
+2.下载git
+    -你可以用git来远程操作Github库
+    -上传文件
+    -下载文件
+
+
+
+>[git下载地址](https://git-scm.com/)
+
+
+
+下载方法
+=================
+
+
+
+![img](/img/gitdown.png)
+
+
+
+*安装成功后鼠标右键会出现如此两个工具*
+*安装过程中要选一个选项，这样才能让鼠标右键点击显示git工具*
+*不然使用太不方便*
+*由于我安装过了，这里就没办法用图片来解说请见谅，可以百度一下就OK*
+
+其他很简单无脑next就可以！！！
+
+
+使用方法
+========
+如果你是第一次下载并使用git
+--------------------------
+
+
+第一次使用或者你换电脑使用的话都需要**邮箱注册**
+    你的用户名：
+    `$ git config --global user.name "user.name"`
+    你的有效邮箱：
+    `$ git config --global user.email "yourmail@youremail.com.cn"`
+
+>当在GitHub中更改用户名时，git中并没有随之修改，需要自己进行修改
+>查看用户名以及邮箱，使用git config命令 如：`git config user.name` , `git config user.email`
+>修改用户名以及邮箱，使用git config 命令的--global参数  
+>如： `git config --global user.name "your name"`
+`git config --global user.email "your email"`
+
+
+如果想要让你的文件从本地(你的电脑)传到Github上当然除了注册邮箱还不行还需要**创建密钥ssh key**
+    查看是否村在 密钥 `cd ~/.ssh ` 若出现：`No such file or directory”` 则需要创建新的ssh key
+    如此即可在C:\deskbook\文件夹中生成ssh keys。包括两个文件`rd_rsa`和`id_rsa.pub ` ：
+
+
+    ```
+
+    $ssh-keygen -t rsa -C "你的邮箱名"
+    $指定目录: C:\deskbook\（说明：若在此处不输入路径，而直接按回车，则ssh keys生成后存放的路径为C:\User\.ssh）
+    $输入密码: 123456  //一般不要设置密码 直接按空格
+    $确认密码: 123456  //不然每次输入密码太麻烦了
+
+    ```
+
+
+    ```
+
+    我的朋友不知道为什么这样创建不成功还有一种方法就是
+    ssh-keygen 然后输入一个路径或者直接按空格
+    按空格跳过的话密钥是在C/用户/你电脑的当前用户名称/.ssh
+
+    ```
+
+
+然后找到rd_rsa和id_rsa.pub所在目录打开id_rsa.pub 复制下来,登录自己的GitHub账号，找到Settings/SSH and GPG keys,
+添加即可 *下图提示如何添加*，密钥添加完成，下次在使用时就不需要再添加密钥了。
+
+
+![img](/img/git-ssh-01.png)
+![img](/img/git-ssh-02.png)
+
+
+
+本地库就是通过`git init`出来的成为本地库的文件夹会多一个若隐若现的`.git`文件夹
+如果看不到就是没有成功或者是它默认隐藏了，你需要把它设置出来
+![img](/img/github-01.png)
+这样你的本地仓库就创建好了，把你需要上传的项目复制到与`.git`同级的文件夹下就可以接下来的操作了
+这里提示你虽然把项目粘贴过来了，但还没有add到Git仓库上，然后我们通过git add .把刚才复制过来的
+项目全部添加到仓库上。
+`git add --all` 或者 `git add .` 这是把你的项目添加到本地仓库中 可以用`git status`来查看当
+前仓库状态，如果都是绿色的文件名称 说明添加成功,Github是远程托管平台，所以每次提交都要有个说明
+说出你都做出了那些修改，`git commit -m"日志"` 把日志提交到仓库接下看来就是准备上传到Github库了
+
+当然了你的Github上面有好多的库，怎么区分你向其中哪一个库里面上传或者下载文件？每个库都有一个链接来识别
+![img](/img/github-push.png)
+当然了你的Github上面也必须有库而不是空空如也
+
+如此关联远程库`git remote add origin 远程库的链接`还有一种方法就是这个库原本就是从远程库中的一个下载下
+来的那就不需要关联了，只需要一次就可以关联
+接下来就是上传到远程库了每次上传仅需要`git push`即可！
+
+
+总结
+=======
+
+
+<ul>
+    <li>在本地创建一个版本库（即文件夹），通过 git init 把它变成Git仓库</li>
+    <li>把项目复制到这个文件夹里面，再通过git add .把项目添加到仓库</li>
+    <li>再通过 git commit -m "注释内容" 把项目提交到仓库</li>
+    <li>在Github上设置好SSH密钥后，新建一个远程仓库，通过 git remote add origin 将本地仓库和远程仓库进行关联</li>
+    <li>最后通过 git push -u origin master 把本地仓库的项目推送到远程仓库（也就是Github）上</li>
+</ul>
