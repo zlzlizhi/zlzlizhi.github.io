@@ -1,0 +1,76 @@
+---
+layout:     post
+title:      "HAP的爬取"
+subtitle:   "记录HAP爬取网页信息"
+date:       2019-05-30 16:27
+author:     "ZLZ"
+header-style:   "text"
+header-img: "img/banner.jpg"
+tags:
+    - C#
+---
+
+
+>**xpath一般使用在xml的解析上比较多，实际上html是xml的一个子集。在.Net中为了方便我们对html进行操作微软为我们提供了一个轻量级并且开源的类库HtmlAgilityPack（点击下载）。比如我们想截取网页上某一部分文字获取其他元素的时候我们一般都是使用正则表达式一步一步的来进行处理的，这个过程相当的繁琐特别是对正则表达式不熟悉的情况，通过HtmlAgilityPack这个过程就变得相当简单了。下面我们来看下HtmlAgilityPack的基本使用方法。**
+
+##Html Agility Pack 工具简介
+[Html Agility Pack](http://html-agility-pack.net/) 作为一个HTML解析器。对与大多数解析器来说，它快速，并且有非常大的“容错性”（格式错误并不会影响解析。例：html的标签缺少情况并不影响解析......）
+Html Agility Pack 基于[.NetCore](https://www.microsoft.com/net/download)。 理论上可以进行跨平台使用（具体未测试）。
+
+
+ ## HtmlAgilityPack的应用
+
+ #### 加载
+ --------------------------
+ // 从物理路径的文件加载
+   ` var doc = new HtmlDocument(); `
+   ` doc.Load(filePath);//文件路径 `
+ 
+  #### 从Stream当中加载
+
+   ` var doc = new HtmlDocument(); `
+   ` doc.LoadHtml(html); `
+
+ #### // 从网页的Url链接加载
+
+  ` var url = "http://www.cnblogs.com/xuliangxing/";`
+  ` var web = new HtmlWeb();`
+   `var doc = web.Load(url);`
+ 
+
+#### 获得节点的方法
+
+`var value = doc.DocumentNode.SelectNodes("//td/input").First().Attributes["value"].Value;`
+  
+/下面的意思是：通过属性id的值，来定位header下的blogTitle节点信息
+4 `HtmlNode titleNode = doc.DocumentNode.SelectSingleNode("//div[@id='header']/div[@id='blogTitle']");`
+备注：注意路径里"//"表示从根节点开始查找，两个斜杠‘//’表示查找所有childnodes；一个斜杠'/'表示只查找第一层的childnodes（即不查找grandchild）；点斜杠"./"表示从当前结点而不是根结点开始查找。
+#### 我们接着上面titleNode节点。
+我们还可以不通过属性id去定位，还有通过索引去定位，如下所示，这个效果和上面是等同的
+下面的意思是：通过索引定位，div[2]是表示根节点的第二个
+`HtmlNode titleNode = doc.DocumentNode.SelectSingleNode("//div[2]/div[1]");`
+
+HtmlNode单个节点和SelectSingleNode一起使用，
+HtmlNodeCollection返回所有的子节点和SelectNodes一起使用
+
+
+#### 得到结点的文字内容或Html内容
+HtmlNode类设计了OuterHtml属性和InnerHtml属性用于获取当前节点的Html源码。两者不同之处是，
+OuterHtml属性返回的是包含当前节点的Html代码在内的所有Html代码，而InnerHtml属性返回的是当前节点里面子节点的所有Html代码，
+InnerText属性过滤掉了所有的Html标记代码，只返回文本值。
+
+
+
+#### 节点的修改
+如何去掉外层的html tag只留下文本内容
+用remove方法。那你需要先得到这个Html结点，通过remove方法删除掉多余的HTML Tag假设该节点叫Node:`Node.ParentNode.RemoveChild(Node,true); `
+
+
+
+#### 显示获得的节点
+可以用一个textbox来接收获得的节点并显示出来。在控制台程序用文本文档保存和显示
+
+
+
+#### 如何去掉外层的html tag只留下文本内容
+用remove方法。那你需要先得到这个Html结点，通过remove方法删除掉多余的HTML Tag假设该节点叫Node:`Node.ParentNode.RemoveChild(Node,true); `
