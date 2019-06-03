@@ -5,7 +5,7 @@ subtitle:   "记录游戏物体的移动方法"
 date:       2019-06-02 17:27
 author:     "ZLZ"
 header-style:   "text"
-header-img: "img/小球移动.jpg"
+header-img: "img/小球移动.png"
 tags:
     - U3D
 ---
