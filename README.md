@@ -140,13 +140,13 @@ You can easily get started by modifying `_config.yml`:
 
 ```
 # Site settings
-title: ZXZ Blog             # title of your website
-SEOTitle: ZXZ Blog			# check out docs for more detail
+title: ZLZ Blog             # title of your website
+SEOTitle: ZLZ Blog			# check out docs for more detail
 description: "Cool Blog"    # ...
 
 # SNS settings      
-github_username: huxpro     # modify this account to yours
-weibo_username: huxpro      # the footer woule be auto-updated.
+github_username: zlzlizhi     # modify this account to yours
+weibo_username:  风在跳舞6447607077    # the footer woule be auto-updated.
 
 # Build settings
 # paginate: 10              # nums of posts in one page

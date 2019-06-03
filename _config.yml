@@ -15,7 +15,7 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     风在跳舞6447607077
+weibo_username:    u/6447607077
 zhihu_username:    会哭的鱼儿
 github_username:    zlzlizhi
 # twitter_username:   huxpro
