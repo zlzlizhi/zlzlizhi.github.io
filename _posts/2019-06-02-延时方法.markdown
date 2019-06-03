@@ -1,0 +1,60 @@
+---
+layout:     post
+title:      "延时方法"
+subtitle:   "记录U3d两种延时方法"
+date:       2019-06-02 19:27
+author:     "ZLZ"
+header-style:   "text"
+header-img: "img/banner.jpg"
+tags:
+    - U3D
+---
+
+
+>**最近再整理以前的笔记，发现unity两种延时方法Invoke和InvokeRepeating。就随手整理了一下**
+
+
+**1：** Invoke(methodName: string, time: float): void;methodName:方法名time:多少秒后执行
+**2：** InvokeRepeating(methodName: string, time: float, repeatRate: float): void;methodName:方法名time:多少秒后执行repeatRate：重复执行间隔
+#### 还有两个重要的方法：
+
+- IsInvoking：用来判断某方法是否被延时，即将执行
+- CancelInvoke：取消该脚本上的所有延时方法
+##### 下边来看看脚本
+
+```
+private float nowTime;
+//执行重复方法的次数   
+ private int count;    
+ // Use this for initialization  
+   void Start () {      
+    nowTime = Time.time;    
+      Debug.Log("时间点："+nowTime);  
+        this.Invoke("setTimeOut", 3.0f);    
+      this.InvokeRepeating("setInterval", 2.0f, 1.0f);  
+      }
+      private void setTimeOut( )
+      {
+       nowTime = Time.time;  
+       Debug.Log("执行延时方法："+nowTime);  
+      }
+        private void setInterval( )
+      {
+       nowTime = Time.time;  
+       Debug.Log("执行重复延时方法："+nowTime);  
+       count++；
+       if（count==5)
+       this.CancelInvoke();
+      }
+                
+```
+**运行结果**
+时间点:0
+执行重复延时方法：2
+执行延时方法：3
+执行重复延时方法：3
+执行重复延时方法：4
+执行重复延时方法：5
+执行重复延时方法：6
+
+
