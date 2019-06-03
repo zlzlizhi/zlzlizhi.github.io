@@ -1,0 +1,86 @@
+---
+layout:     post
+title:      "游戏物体移动的方法"
+subtitle:   "记录游戏物体的移动方法"
+date:       2019-06-02 17:27
+author:     "ZLZ"
+header-style:   "text"
+header-img: "img/小球移动.jpg"
+tags:
+    - U3D
+---
+# 物体的移动
+
+## 在unity中，经常遇到的一个问题就是物体移动的问题，Unity引擎给出了很多种解决方案。 
+**这里先给大家介绍一种——Transform.Translate函数，我们可以先建立一个小球，添加脚本**
+  
+
+```
+private float h=0.0f;
+  private float v=0.0f;
+ private transform tr;
+ public float movespeed=10.0f;
+
+  void strat(){
+  tr=Getcomponent<Transform>();
+ }
+ void Update(){
+ h=input.GetAxis("Horizontal");
+ v=input.GetAxis("Vertical");
+ //计算前后左右移动的向量
+  vector3 movedir=(vector3.forward*v)+(vector3.right*h);
+  //移动
+  tr.translate(movedir*time.deltatime*movespeed);
+   }
+
+
+```
+
+## 还有一种移动方式给移动的物体加上刚体，再给刚体加上力
+        private float h=0.0f;
+        private float v=0.0f;
+       private Rigidbody rBody;
+       public float movesforce=10.0f;
+      
+       void strat(){
+       rBody=Getcomponent<Rigidbody>();
+      }
+      void Update(){
+      h=input.GetAxis("Horizontal");
+      v=input.GetAxis("Vertical");
+     //计算前后左右移动的向量
+      vector3 dir=new vector3(h,0,v)
+      //移动
+     rBody.AddForce(dir*time.deltatime*moveforce);
+   
+      }
+   ## 给刚体加上速度
+   基本语法： public Vector3 velocity{get;set;}
+  功能说明： 此属性用于设置或返回刚体的速度值，其使用说明如下。
+    1、在脚本中无论是给刚体赋予一个Vector3类型的速度向量v,还是获取当前刚体的速度v，v的方向都是相对世界坐标系而言的。
+    2、velocity的单位是米每秒，而不是帧每秒，其中米是Unity默认的长度单位。
+```
+   private float h=0.0f;
+        private float v=0.0f;
+       private Rigidbody rBody;
+       public float movesforce=10.0f;
+      
+       void strat(){
+       rBody=Getcomponent<Rigidbody>();
+      }
+      void Update(){
+      h=input.GetAxis("Horizontal");
+      v=input.GetAxis("Vertical");
+     //计算前后左右移动的向量
+      vector3 dir=new vector3(h,0,v)
+      //移动
+     rBody.velocity=div*movesforce;
+   
+      }
+ 
+ 
+
+```
+
+ 
+  
