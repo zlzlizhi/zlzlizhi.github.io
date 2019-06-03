@@ -16,7 +16,7 @@ future: true
 # SNS settings
 RSS: false
 weibo_username:    u/6447607077
-zhihu_username:    会哭的鱼儿
+zhihu_username:    people/ZLZ-0311
 github_username:    zlzlizhi
 # twitter_username:   huxpro
 #facebook_username:  huxpro
