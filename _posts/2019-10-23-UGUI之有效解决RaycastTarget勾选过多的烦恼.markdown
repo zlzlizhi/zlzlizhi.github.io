@@ -52,15 +52,6 @@ Canvas的参数
 UICamera相机的参数
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190827142248143.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTc5ODA3MQ==,size_16,color_FFFFFF,t_70)
 这个脚本无论是运行模式，还是编辑模式都可以看到蓝色的辅助线，的理论上90%的文字或者 非按钮的图片 都是不需要RaycastTarget的。
-<p><br></p>
-<p>1、新建一个场景、将所要浏览的全景图导入项目中，设置属性如下：</p>
-<p><br></p>
-<p><img src="https://img-blog.csdn.net/20171026102359690?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRkZfMTIyMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p><br></p>
-<p>2、新建Material</p>
-<p><img src="https://img-blog.csdn.net/20171026102606074?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRkZfMTIyMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br></p>
-<p><br></p>
-<p>3、Window --&gt;&nbsp; Lighting --&gt; Settings 将刚刚创建的Material给天空球<img src="https://img-blog.csdn.net/20171026102812711?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRkZfMTIyMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-                                    </div>
+
 
 
